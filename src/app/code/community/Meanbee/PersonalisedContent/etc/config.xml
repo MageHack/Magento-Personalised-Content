@@ -10,6 +10,11 @@
             <meanbee_personalisedcontent>
                 <class>Meanbee_PersonalisedContent_Block</class>
             </meanbee_personalisedcontent>
+            <adminhtml>
+                <rewrite>
+                    <cms_block_edit_form>Meanbee_PersonalisedContent_Block_Adminhtml_Cms_Block_Edit_Form</cms_block_edit_form>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <meanbee_personalisedcontent>
@@ -32,6 +37,11 @@
                     </cms_block_personalisation>
                 </entities>
             </meanbee_personalisedcontent_resource>
+            <cms_resource>
+                <rewrite>
+                    <block>Meanbee_PersonalisedContent_Model_Resource_Cms_Block</block>
+                </rewrite>
+            </cms_resource>
         </models>
         <resources>
             <meanbee_personalisedcontent_setup>
