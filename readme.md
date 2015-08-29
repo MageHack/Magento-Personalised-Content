@@ -1,41 +1,32 @@
 Meanbee PersonalisedContent Extension
 =====================
-Add your description here
-Facts
------
-- version: 1.0.0
-- extension key: Meanbee_PersonalisedContent
-- [extension on Magento Connect](http://www.magentocommerce.com/magento-connect/meanbee)-personalisedcontent-1234.html)
-- Magento Connect 1.0 extension key: magento-community/Meanbee_PersonalisedContent
-- Magento Connect 2.0 extension key: http://connect20.magentocommerce.com/community/Meanbee_PersonalisedContent
-- [extension on GitHub](https://github.com/meanbee/Meanbee_PersonalisedContent)
-- [direct download link](http://connect.magentocommerce.com/community/get/Meanbee_PersonalisedContent-1.0.0.tgz)
+
+Automatically show customers the most relevant static blocks based on their previous interactions/interests.
+
 
 Description
 -----------
-This paragraph describes what the extension does.
 
-Requirements
-------------
-- PHP >= 5.2.0
-- Mage_Core
-- ...
+Personalised product recommendations are popular but less effort has been put into customising CMS content based on 
+customers preferences.  This module provides a widget which will determine the most appropriate static block to show to 
+ the customer based on their purchase history.  Static blocks are assigned product categories in order to understand
+ their content. 
+ 
+ Customers' category preferences are determined by number of products purchased in each category.  
 
-Compatibility
--------------
-- Magento >= 1.4
 
-Installation Instructions
--------------------------
-1. Install the extension via Magento Connect with the key shown above or copy all the files into your document root.
-2. Clear the cache, logout from the admin panel and then login again.
-3. Configure and activate the extension under System - Configuration - Company - Example Extension.
-4. ...
+Technical Overview
+------------------
 
-Uninstallation
---------------
-1. Remove all extension files from your Magento installation
-2. ...
+Static blocks have a new attribute "Personalisation Tags" which is populated with the catalogue categories. 
+
+There is a cron that runs at midnight each day which reindexes customers category preferences:
+
+* If a customer has placed an order for a product, start tracking a score for the category that products is in.
+* If a product is in multiple categories, split the score between categories.
+
+To place content, insert the Meanbee PersonalisedContent widget.  When rendered, this will consider the current logged 
+in customer and look for their favourite categories.  These can then be used to find a relevant static block to show. 
 
 Support
 -------
@@ -45,11 +36,13 @@ Contribution
 ------------
 Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).
 
-Developer
+Project Team
 ---------
 
-[http://www.firstname-lastname.com](http://www.firstname-lastname.com)
-[@FirstNameLastName](https://twitter.com/FirstNameLastName)
+* [Ash Smith](https://twitter.com/ashsmithco)
+* [Tom Robertshaw](https://twitter.com/bobbyshaw)
+* [Doug Ogisi](https://www.linkedin.com/pub/douglas-ogisi/1b/964/35b)
+* [Shari Robertshaw](https://twitter.com/sharibary)
 
 Licence
 -------
