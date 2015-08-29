@@ -1,0 +1,25 @@
+<widgets>
+    <meanbee_personalisedcontent type="meanbee_personalisedcontent/widget_personalised_content" translate="name description" module="meanbee_personalisedcontent">
+        <name>Personalised Content</name>
+        <description>Displays Personalised content based on user behaviour.</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <is_enabled translate="label">
+                <label>Enabled</label>
+                <required>1</required>
+                <visible>1</visible>
+                <value>1</value>
+                <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                <type>select</type>
+            </is_enabled>
+            <default_category translate="label">
+                <label>Enabled</label>
+                <required>1</required>
+                <visible>1</visible>
+                <value>1</value>
+                <source_model>meanbee_personalisedcontent/source_categories</source_model>
+                <type>select</type>
+            </default_category>
+        </parameters>
+    </meanbee_personalisedcontent>
+</widgets>
