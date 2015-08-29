@@ -2,14 +2,8 @@
     "name": "Meanbee/PersonalisedContent",
     "license": "OSL-3.0",
     "type": "magento-module",
-    "description": "Add your description here",
+    "description": "Show personalised cms content to customers based on their product/category interests.",
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
-    },
-    "authors":[
-        {
-            "name":"Add your name here",
-            "email":"Add your email address here"
-        }
-    ]
+    }
 }
