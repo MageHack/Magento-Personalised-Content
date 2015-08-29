@@ -72,6 +72,12 @@ class Meanbee_PersonalisedContent_Helper_Customer_Categories
         $product->setData($args['row']);
 
         $categoryIds = $product->getCategoryIds();
+
+        if (empty($categoryIds)) {
+            return;
+        }
+
+        $score = self::ORDER_SCORE / count($categoryIds);
         foreach ($categoryIds as $categoryId) {
             /** @var Meanbee_PersonalisedContent_Model_Resource_Customer_Categories_Collection $customerCategories */
             $customerCategories = Mage::getModel('meanbee_personalisedcontent/customer_categories')->getCollection()
@@ -83,13 +89,13 @@ class Meanbee_PersonalisedContent_Helper_Customer_Categories
             if ($customerCategories->count()) {
                 /** @var Meanbee_PersonalisedContent_Model_Customer_Categories $customerCategory */
                 $customerCategory = $customerCategories->getFirstItem();
-                $customerCategory->setData('score', $customerCategory->getData('score') + self::ORDER_SCORE);
+                $customerCategory->setData('score', $customerCategory->getData('score') + $score);
             } else {
                 $customerCategory = Mage::getModel('meanbee_personalisedcontent/customer_categories');
                 $customerCategory->setData(array(
                     'customer_id' => $args['customer_id'],
                     'category_id' => $categoryId,
-                    'score'       => self::ORDER_SCORE
+                    'score'       => $score
                 ));
             }
 
