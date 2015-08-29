@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Meanbee_PersonalisedContent>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Meanbee_PersonalisedContent>
     </modules>
     <global>
@@ -27,6 +27,9 @@
                     <customer_categories>
                         <table>meanbee_personalisedcontent_customer_categories</table>
                     </customer_categories>
+                    <cms_block_personalisation>
+                        <table>meanbee_personalisedcontent_cms_block_personalisation</table>
+                    </cms_block_personalisation>
                 </entities>
             </meanbee_personalisedcontent_resource>
         </models>
