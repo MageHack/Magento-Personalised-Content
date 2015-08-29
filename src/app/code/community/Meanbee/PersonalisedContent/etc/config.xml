@@ -12,8 +12,7 @@
             </meanbee_personalisedcontent>
             <adminhtml>
                 <rewrite>
-                    <cms_block_edit_form>Meanbee_PersonalisedContent_Block_Adminhtml_Cms_Block_Edit_Form
-                    </cms_block_edit_form>
+                    <cms_block_edit_form>Meanbee_PersonalisedContent_Block_Adminhtml_Cms_Block_Edit_Form</cms_block_edit_form>
                 </rewrite>
             </adminhtml>
         </blocks>
