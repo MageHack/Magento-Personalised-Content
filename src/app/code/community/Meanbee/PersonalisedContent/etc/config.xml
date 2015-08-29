@@ -46,7 +46,7 @@
                     <cron_expr>0 0 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>meanbee_personalisedcontent/observer::updateCustomerCategories</model>
+                    <model>meanbee_personalisedcontent/observer::reindexCustomerCategories</model>
                 </run>
             </customer_categories_update>
         </jobs>
