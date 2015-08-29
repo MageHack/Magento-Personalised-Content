@@ -19,12 +19,22 @@
         <models>
             <meanbee_personalisedcontent>
                 <class>Meanbee_PersonalisedContent_Model</class>
+                <resourceModel>meanbee_personalisedcontent_resource</resourceModel>
             </meanbee_personalisedcontent>
+            <meanbee_personalisedcontent_resource>
+                <class>Meanbee_PersonalisedContent_Model_Resource</class>
+                <entities>
+                    <customer_categories>
+                        <table>meanbee_personalisedcontent_customer_categories</table>
+                    </customer_categories>
+                </entities>
+            </meanbee_personalisedcontent_resource>
         </models>
         <resources>
             <meanbee_personalisedcontent_setup>
                 <setup>
                     <module>Meanbee_PersonalisedContent</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
                 </setup>
             </meanbee_personalisedcontent_setup>
         </resources>
