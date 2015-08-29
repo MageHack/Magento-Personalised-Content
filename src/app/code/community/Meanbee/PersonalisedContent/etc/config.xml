@@ -39,4 +39,16 @@
             </meanbee_personalisedcontent_setup>
         </resources>
     </global>
+    <crontab>
+        <jobs>
+            <customer_categories_update>
+                <schedule>
+                    <cron_expr>0 0 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>meanbee_personalisedcontent/observer::updateCustomerCategories</model>
+                </run>
+            </customer_categories_update>
+        </jobs>
+    </crontab>
 </config>
