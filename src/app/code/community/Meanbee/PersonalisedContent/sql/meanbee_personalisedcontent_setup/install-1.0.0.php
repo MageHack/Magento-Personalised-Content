@@ -33,13 +33,17 @@ $table = $installer->getConnection()
         $installer->getFkName('meanbee_personalisedcontent/customer_categories', 'customer_id', 'customer/entity', 'entity_id'),
         'customer_id',
         $installer->getTable('customer/entity'),
-        'entity_id'
+        'entity_id',
+        Varien_Db_Ddl_Table::ACTION_CASCADE,
+        Varien_Db_Ddl_Table::ACTION_CASCADE
     )
     ->addForeignKey(
         $installer->getFkName('meanbee_personalisedcontent/customer_categories', 'category_id', 'catalog/category', 'entity_id'),
         'category_id',
         $installer->getTable('catalog/category'),
-        'entity_id'
+        'entity_id',
+        Varien_Db_Ddl_Table::ACTION_CASCADE,
+        Varien_Db_Ddl_Table::ACTION_CASCADE
     );
 
 $installer->getConnection()->createTable($table);
