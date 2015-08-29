@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_PersonalisedContent>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends></depends>
+        </Meanbee_PersonalisedContent>
+    </modules>
+</config>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_PersonalisedContent>
+            <version>1.0.0</version>
+        </Meanbee_PersonalisedContent>
+    </modules>
+    <global>
+        <blocks>
+            <meanbee_personalisedcontent>
+                <class>Meanbee_PersonalisedContent_Block</class>
+            </meanbee_personalisedcontent>
+        </blocks>
+        <helpers>
+            <meanbee_personalisedcontent>
+                <class>Meanbee_PersonalisedContent_Helper</class>
+            </meanbee_personalisedcontent>
+        </helpers>
+        <models>
+            <meanbee_personalisedcontent>
+                <class>Meanbee_PersonalisedContent_Model</class>
+            </meanbee_personalisedcontent>
+        </models>
+        <resources>
+            <meanbee_personalisedcontent_setup>
+                <setup>
+                    <module>Meanbee_PersonalisedContent</module>
+                </setup>
+            </meanbee_personalisedcontent_setup>
+        </resources>
+    </global>
+</config>
