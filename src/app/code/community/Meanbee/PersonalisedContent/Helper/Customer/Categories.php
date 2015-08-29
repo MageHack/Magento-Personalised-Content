@@ -3,9 +3,12 @@
 class Meanbee_PersonalisedContent_Helper_Customer_Categories
 {
     /**
-     * Value important of an order within a category at 50 points
+     * Value importance weighting of products viewed and ordered
      */
     const ORDER_SCORE = 50;
+    const VIEW_SCORE = 5;
+
+
 
     /**
      * Update indexes of customer interactions with categories.
@@ -28,6 +31,14 @@ class Meanbee_PersonalisedContent_Helper_Customer_Categories
 
         Mage::getSingleton('core/resource_iterator')->walk($sales->getSelect(), array(array($this, 'getProductsForOrder')));
 
+        // Iterate through all views products
+        // Can't use built-in reports very easily as they're very tailored around product collections and admin reports
+        $zendDb = Mage::getModel('core/resource')->getConnection('core_read');
+        $tableName = Mage::getSingleton('core/resource')->getTableName('reports/viewed_product_index');
+        $select = sprintf('SELECT * FROM %s WHERE customer_id is not NULL;', $tableName);
+
+        Mage::getSingleton('core/resource_iterator')->walk($select, array(array($this, 'getProductsForView')), null, $zendDb );
+
         return $this;
     }
 
@@ -49,7 +60,7 @@ class Meanbee_PersonalisedContent_Helper_Customer_Categories
             $orderItemIds[] = $visibleItem->getProductId();
         }
 
-        /** @var Mage_Catalog_Model_Product $products */
+        /** @var Mage_Catalog_Model_Resource_Product_Collection $products */
         $products = Mage::getModel('catalog/product')->getCollection()
             ->addIdFilter($orderItemIds);
 
@@ -94,6 +105,54 @@ class Meanbee_PersonalisedContent_Helper_Customer_Categories
                 $customerCategory = Mage::getModel('meanbee_personalisedcontent/customer_categories');
                 $customerCategory->setData(array(
                     'customer_id' => $args['customer_id'],
+                    'category_id' => $categoryId,
+                    'score'       => $score
+                ));
+            }
+
+            $customerCategory->save();
+        }
+    }
+
+    /**
+     * Find products viewed
+     *
+     * Accepts resource iterator of products
+     * @param $args
+     */
+    public function getProductsForView($args)
+    {
+        /** @var Mage_Reports_Model_Product_Index_Viewed $order */
+        $view = Mage::getModel('reports/product_index_viewed');
+        $view->setData($args['row']);
+
+        /** @var Mage_Catalog_Model_Product $products */
+        $product = Mage::getModel('catalog/product')->load($view->getProductId());
+        $product->getCategoryIds();
+
+        $categoryIds = $product->getCategoryIds();
+
+        if (empty($categoryIds)) {
+            return;
+        }
+
+        $score = self::VIEW_SCORE / count($categoryIds);
+        foreach ($categoryIds as $categoryId) {
+            /** @var Meanbee_PersonalisedContent_Model_Resource_Customer_Categories_Collection $customerCategories */
+            $customerCategories = Mage::getModel('meanbee_personalisedcontent/customer_categories')->getCollection()
+                ->addFieldToFilter('customer_id', $view->getCustomerId())
+                ->addFieldToFilter('category_id', $categoryId)
+                ->setPageSize(1)
+                ->setCurPage(1);
+
+            if ($customerCategories->count()) {
+                /** @var Meanbee_PersonalisedContent_Model_Customer_Categories $customerCategory */
+                $customerCategory = $customerCategories->getFirstItem();
+                $customerCategory->setData('score', $customerCategory->getData('score') + $score);
+            } else {
+                $customerCategory = Mage::getModel('meanbee_personalisedcontent/customer_categories');
+                $customerCategory->setData(array(
+                    'customer_id' => $view->getCustomerId(),
                     'category_id' => $categoryId,
                     'score'       => $score
                 ));
