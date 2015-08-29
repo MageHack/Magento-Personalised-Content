@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Meanbee_PersonalisedContent>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Meanbee_PersonalisedContent>
     </modules>
     <global>
@@ -10,6 +10,12 @@
             <meanbee_personalisedcontent>
                 <class>Meanbee_PersonalisedContent_Block</class>
             </meanbee_personalisedcontent>
+            <adminhtml>
+                <rewrite>
+                    <cms_block_edit_form>Meanbee_PersonalisedContent_Block_Adminhtml_Cms_Block_Edit_Form
+                    </cms_block_edit_form>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <meanbee_personalisedcontent>
@@ -27,8 +33,16 @@
                     <customer_categories>
                         <table>meanbee_personalisedcontent_customer_categories</table>
                     </customer_categories>
+                    <cms_block_personalisation>
+                        <table>meanbee_personalisedcontent_cms_block_personalisation</table>
+                    </cms_block_personalisation>
                 </entities>
             </meanbee_personalisedcontent_resource>
+            <cms_resource>
+                <rewrite>
+                    <block>Meanbee_PersonalisedContent_Model_Resource_Cms_Block</block>
+                </rewrite>
+            </cms_resource>
         </models>
         <resources>
             <meanbee_personalisedcontent_setup>
@@ -39,6 +53,13 @@
             </meanbee_personalisedcontent_setup>
         </resources>
     </global>
+    <default>
+        <meanbee_personalisedcontent>
+            <general>
+                <enabled>0</enabled>
+            </general>
+        </meanbee_personalisedcontent>
+    </default>
     <crontab>
         <jobs>
             <customer_categories_update>
