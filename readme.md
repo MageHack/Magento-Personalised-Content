@@ -1,7 +1,7 @@
 Meanbee PersonalisedContent Extension
 =====================
 
-Automatically show customers the most relevant static blocks based on their previous interactions/interests.
+Automatically show customers the most relevant static blocks based on their previous product purchases and views.
 
 
 Description
@@ -12,7 +12,7 @@ customers preferences.  This module provides a widget which will determine the m
  the customer based on their purchase history.  Static blocks are assigned product categories in order to understand
  their content. 
  
- Customers' category preferences are determined by number of products purchased in each category.  
+ Customers' category preferences are determined by number of products purchased and viewed in each category.   
 
 
 Technical Overview
