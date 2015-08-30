@@ -30,11 +30,11 @@ This extension can be customised to choose which customer interactions affect pe
 
 ### Logged in as Ash
 
-![image](docs/home_home.png)
+![image](docs/home_mens.png)
 
 ### Logged in as Tom
 
-![image](docs/home_mens.png)
+![image](docs/home_home.png)
 
 
 Technical Overview
