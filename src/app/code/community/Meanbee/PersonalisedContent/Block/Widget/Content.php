@@ -78,4 +78,9 @@ class Meanbee_PersonalisedContent_Block_Widget_Content extends Mage_Core_Block_T
         return $block->toHtml();
     }
 
+    protected function _toHtml()
+    {
+        return $this->getPersonlisedContentHtml();
+    }
+
 }

@@ -1,5 +1,5 @@
 <widgets>
-    <meanbee_personalisedcontent type="meanbee_personalisedcontent/widget_personalised_content" translate="name description" module="meanbee_personalisedcontent">
+    <meanbee_personalisedcontent type="meanbee_personalisedcontent/widget_content" translate="name description" module="meanbee_personalisedcontent">
         <name>Personalised Content</name>
         <description>Displays Personalised content based on user behaviour.</description>
         <is_email_compatible>0</is_email_compatible>
