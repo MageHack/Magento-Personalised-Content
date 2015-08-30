@@ -57,6 +57,12 @@
             <general>
                 <enabled>0</enabled>
             </general>
+            <interactions>
+                <use_orders>1</use_orders>
+                <order_weighting>50</order_weighting>
+                <use_pageviews>1</use_pageviews>
+                <pageview_weighting>5</pageview_weighting>
+            </interactions>
         </meanbee_personalisedcontent>
     </default>
     <crontab>
