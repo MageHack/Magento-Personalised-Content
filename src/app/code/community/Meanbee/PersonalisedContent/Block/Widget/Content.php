@@ -17,10 +17,8 @@ class Meanbee_PersonalisedContent_Block_Widget_Content extends Mage_Core_Block_T
      */
     public function getPersonlisedContentHtml()
     {
-        $categories =
-            Mage::getSingleton('customer/session')->isLoggedIn()
-            ? $this->getPersonlisedCategoryItems(Mage::getSingleton('customer/session')->getCustomer())
-            : array($this->getDefaultCategory());
+
+        $categories = $this->getPersonlisedCategoryItems(Mage::getSingleton('customer/session')->getCustomer());
         $identifier = $this->getPersonsaliedCmsIdentifier($categories);
         return $this->renderCmsBlock($identifier);
     }
@@ -38,6 +36,11 @@ class Meanbee_PersonalisedContent_Block_Widget_Content extends Mage_Core_Block_T
             ->setOrder('score', 'desc')
             ->setPageSize(5)
             ->setCurPage(1);
+
+        // Fallback on a default if nothing is found.
+        if($personalisedCustomerCategoryItems->count() == 0) {
+            return array($this->getDefaultCategory());
+        }
 
         foreach($personalisedCustomerCategoryItems as $item) {
             $categories[] = $item->getCategoryId();
