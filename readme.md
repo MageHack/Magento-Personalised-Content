@@ -7,12 +7,34 @@ Automatically show customers the most relevant static blocks based on their prev
 Description
 -----------
 
-Personalised product recommendations are popular but less effort has been put into customising CMS content based on 
-customers preferences.  This module provides a widget which will determine the most appropriate static block to show to 
- the customer based on their purchase history.  Static blocks are assigned product categories in order to understand
- their content. 
+Personalised product recommendations are popular but less effort has been put into customising CMS content based on customers preferences.  This module provides a widget which will determine the most appropriate static block to show to the customer based on their purchase history.  Static blocks are assigned product categories in order to understand their content. 
  
- Customers' category preferences are determined by number of products purchased and viewed in each category.   
+Customers' category preferences are determined by number of products purchased and viewed in each category.   
+ 
+### Static Blocks
+ 
+Multiple static blocks
+
+ ![image](docs/cms_static_blocks.png =500x)
+ 
+Each one can have categories assigned to them for use in personalisation.
+
+ ![image](docs/cms_category.png =500x)
+ 
+### Configuration
+
+This extension can be customised to choose which customer interactions affect personalisation and a weighting for how much.  The current version looks for orders and pageviews for products.
+ 
+![image](docs/configuration.png =500x)
+
+
+### Logged in as Ash
+
+![image](docs/home_home.png =500x)
+
+### Logged in as Tom
+
+![image](docs/home_mens.png =500x)
 
 
 Technical Overview
@@ -27,6 +49,16 @@ There is a cron that runs at midnight each day which reindexes customers categor
 
 To place content, insert the Meanbee PersonalisedContent widget.  When rendered, this will consider the current logged 
 in customer and look for their favourite categories.  These can then be used to find a relevant static block to show. 
+
+Demo Theme
+----------
+
+There is a demo theme available in the seperate [Meanbee_PersonalisedContentTheme](https://github.com/MageHack/PersonalisedContentTheme)
+. It contains dummy images, styles, customers and order.
+
+
+![image](docs/home_home.png =500x)
+
 
 Support
 -------
