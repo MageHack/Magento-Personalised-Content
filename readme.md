@@ -15,26 +15,26 @@ Customers' category preferences are determined by number of products purchased a
  
 Multiple static blocks
 
- ![image](docs/cms_static_blocks.png =500x)
+![image](docs/cms_static_blocks.png)
  
 Each one can have categories assigned to them for use in personalisation.
 
- ![image](docs/cms_category.png =500x)
+![image](docs/cms_category.png)
  
 ### Configuration
 
 This extension can be customised to choose which customer interactions affect personalisation and a weighting for how much.  The current version looks for orders and pageviews for products.
  
-![image](docs/configuration.png =500x)
+![image](docs/configuration.png)
 
 
 ### Logged in as Ash
 
-![image](docs/home_home.png =500x)
+![image](docs/home_home.png)
 
 ### Logged in as Tom
 
-![image](docs/home_mens.png =500x)
+![image](docs/home_mens.png)
 
 
 Technical Overview
@@ -57,7 +57,7 @@ There is a demo theme available in the seperate [Meanbee_PersonalisedContentThem
 . It contains dummy images, styles, customers and order.
 
 
-![image](docs/home_home.png =500x)
+![image](docs/home_home.png)
 
 
 Support
