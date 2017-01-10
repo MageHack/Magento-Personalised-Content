@@ -1,4 +1,4 @@
-Meanbee PersonalisedContent Extension
+Meanbee Personalised Content Extension
 =====================
 
 Automatically show customers the most relevant static blocks based on their previous product purchases and views.
